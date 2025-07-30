@@ -24,13 +24,6 @@
             padding: 20px;
         }
 
-        /* Full width container for certificates only */
-        .full-width-container {
-            width: 100%;
-            padding: 0 20px;
-            margin: 30px 0;
-        }
-
         header {
             text-align: center;
             padding: 40px 0;
@@ -68,6 +61,17 @@
         .contact-info p {
             margin: 5px 0;
             font-size: 1.1em;
+        }
+
+        .professional-objective {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+            color: #555;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .social-buttons {
@@ -135,70 +139,66 @@
             margin-top: 5px;
         }
 
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-            max-width: 100%;
-        }
-
-        .certificate-item {
-            border: 2px solid #000;
-            padding: 10px;
-            text-align: center;
-            background-color: #f9f9f9;
-            font-size: 0.85em;
-        }
-
-        .certificate-item.large {
-            grid-column: span 3;
-            max-width: 400px;
-            justify-self: center;
-        }
-
-        .certificate-item.medium {
-            grid-column: span 2;
-            min-height: 120px;
-        }
-
-        .certificate-item.small {
-            grid-column: span 1;
-            min-height: 100px;
-        }
-
-        .certificate-placeholder {
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
             width: 100%;
-            height: 80px;
-            background-color: #e0e0e0;
-            border: 1px dashed #999;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            cursor: pointer;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border: 3px solid #fff;
+        }
+
+        .education-item-with-cert {
+            margin-bottom: 30px;
+            border-left: 4px solid #000;
+            background-color: #f9f9f9;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            color: #666;
-            font-style: italic;
-            font-size: 0.8em;
         }
 
-        .certificate-placeholder.large {
-            height: 120px;
+        .education-item-with-cert.large {
+            padding: 25px;
         }
 
-        .certificate-placeholder.small {
-            height: 70px;
+        .education-item-with-cert.medium {
+            padding: 20px;
         }
 
-        .certificate-item h4 {
-            margin-bottom: 8px;
-            color: #000;
-            font-size: 1em;
-            line-height: 1.3;
+        .education-item-with-cert.small {
+            padding: 15px;
         }
 
-        .certificate-item p {
-            font-size: 0.9em;
-            line-height: 1.2;
+        .education-content {
+            flex: 1;
+        }
+
+        .education-cert-image {
+            width: 120px;
+            height: 80px;
+            border: 2px solid #000;
+            object-fit: cover;
+            cursor: pointer;
+            margin-left: 20px;
+            flex-shrink: 0;
         }
 
         .languages {
@@ -228,23 +228,9 @@
             color: #666;
         }
 
-        @media (max-width: 1200px) {
-            .certificates-grid {
-                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            }
-            
-            .certificate-item.large {
-                grid-column: span 2;
-            }
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
-            }
-            
-            .full-width-container {
-                padding: 0 10px;
             }
             
             h1 {
@@ -254,34 +240,6 @@
             .btn {
                 display: block;
                 margin: 10px 0;
-            }
-            
-            .certificates-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 10px;
-            }
-            
-            .certificate-item.large {
-                grid-column: span 2;
-            }
-            
-            .certificate-item.medium {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .certificates-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .certificate-item.large {
-                grid-column: span 2;
-            }
-            
-            .certificate-item.medium,
-            .certificate-item.small {
-                grid-column: span 1;
             }
         }
     </style>
@@ -296,6 +254,10 @@
             <div class="contact-info">
                 <p><strong>Email:</strong> kelvin.krauss.br@gmail.com</p>
                 <p><strong>Telefone:</strong> (47) 9910-4771</p>
+            </div>
+
+            <div class="professional-objective">
+                <p>Sou estudante de Ciências da Computação no Instituto Federal Catarinense, lido bem com Java, JavaScript e Python. Sempre buscando aprender sobre novas tecnologias.</p>
             </div>
 
             <div class="social-buttons">
@@ -315,129 +277,141 @@
         </section>
 
         <section class="section">
-            <h2>Formação Complementar</h2>
-            
-            <div class="education-item">
-                <h3>Desenvolvedor Web - Back End (Java)</h3>
-                <p class="institution">Programa Entra21 — Fundação Softville / Blusoft</p>
-                <p class="duration">2024</p>
-                <p class="workload">Carga horária: 220h</p>
-            </div>
-            
-            <div class="education-item">
-                <h3>Bootcamp NTT DATA: Java e IA para Iniciantes</h3>
-                <p class="institution">Programa patrocinado pela Microsoft</p>
-                <p class="duration">2025</p>
-                <p class="workload">Carga horária: 48h</p>
+            <div class="languages">
+                <h3>Idiomas</h3>
+                <div class="language-item">
+                    <strong>Português:</strong> Nativo
+                </div>
+                <div class="language-item">
+                    <strong>Inglês:</strong> C1 Advanced
+                    <br><small>EF SET Certificate — 90 min test, score: 64/100</small>
+                    <br><small><a href="https://cert.efset.org/Xogsey" target="_blank">https://cert.efset.org/Xogsey</a></small>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Full width section for certificates -->
-    <div class="full-width-container">
-        <div class="certificates-grid">
-            <!-- Large certificate (220h) -->
-            <div class="certificate-item large">
-                <div class="certificate-placeholder large" id="cert-entra21">
-                    <img src="certificado-entra21.png" alt="Certificado Programa Entra21" style="width: 100%; height: 100%; object-fit: contain;">
+        <section class="section">
+            <h2>Formação Complementar</h2>
+            
+            <div class="education-item-with-cert large">
+                <div class="education-content">
+                    <h3>Desenvolvedor Web - Back End (Java)</h3>
+                    <p class="institution">Programa Entra21 — Fundação Softville / Blusoft</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 220h</p>
                 </div>
-                <h4>Programa Entra21</h4>
-                <p>Desenvolvedor Web - Back End (Java) - 220h</p>
+                <img src="certificado-entra21.png" alt="Certificado Programa Entra21" class="education-cert-image" onclick="openModal('certificado-entra21.png')">
+            </div>
+            
+            <div class="education-item-with-cert medium">
+                <div class="education-content">
+                    <h3>Bootcamp NTT DATA: Java e IA para Iniciantes</h3>
+                    <p class="institution">Programa patrocinado pela Microsoft</p>
+                    <p class="duration">2025</p>
+                    <p class="workload">Carga horária: 48h</p>
+                </div>
+                <img src="certificado-ntt-data.png" alt="Certificado NTT DATA" class="education-cert-image" onclick="openModal('certificado-ntt-data.png')">
             </div>
 
-            <!-- Medium certificates (25-50h) -->
-            <div class="certificate-item medium">
-                <div class="certificate-placeholder" id="cert-ntt">
-                    <img src="certificado-ntt-data.png" alt="Certificado NTT DATA" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert medium">
+                <div class="education-content">
+                    <h3>Inovando com CSS</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 26h</p>
                 </div>
-                <h4>Bootcamp NTT DATA</h4>
-                <p>Java e IA para Iniciantes - 48h</p>
+                <img src="certificado-css.png" alt="Certificado Inovando com CSS" class="education-cert-image" onclick="openModal('certificado-css.png')">
             </div>
 
-            <div class="certificate-item medium">
-                <div class="certificate-placeholder" id="cert-css">
-                    <img src="certificado-css.png" alt="Certificado Inovando com CSS" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert medium">
+                <div class="education-content">
+                    <h3>Desenvolvendo Aplicações Mobile com Android Studio</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 15h</p>
                 </div>
-                <h4>Inovando com CSS</h4>
-                <p>Fundação Bradesco - 26h</p>
+                <img src="certificado-android.png" alt="Certificado Android Studio" class="education-cert-image" onclick="openModal('certificado-android.png')">
             </div>
 
-            <div class="certificate-item medium">
-                <div class="certificate-placeholder" id="cert-android">
-                    <img src="certificado-android.png" alt="Certificado Android Studio" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert medium">
+                <div class="education-content">
+                    <h3>Fundamentos de Lógica de Programação</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 15h</p>
                 </div>
-                <h4>Desenvolvendo Aplicações Mobile com Android Studio</h4>
-                <p>Fundação Bradesco - 15h</p>
+                <img src="certificado-logica.png" alt="Certificado Fundamentos de Lógica" class="education-cert-image" onclick="openModal('certificado-logica.png')">
             </div>
 
-            <div class="certificate-item medium">
-                <div class="certificate-placeholder" id="cert-logica">
-                    <img src="certificado-logica.png" alt="Certificado Fundamentos de Lógica" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Segurança em Tecnologia da Informação</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 12h</p>
                 </div>
-                <h4>Fundamentos de Lógica de Programação</h4>
-                <p>Fundação Bradesco - 15h</p>
+                <img src="certificado-seguranca.png" alt="Certificado Segurança em TI" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
             </div>
 
-            <!-- Small certificates (5-12h) -->
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-seguranca">
-                    <img src="certificado-seguranca.png" alt="Certificado Segurança em TI" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Introdução à Administração</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 12h</p>
                 </div>
-                <h4>Segurança em Tecnologia da Informação</h4>
-                <p>Fundação Bradesco - 12h</p>
+                <img src="certificado-administracao.png" alt="Certificado Introdução à Administração" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
             </div>
 
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-administracao">
-                    <img src="certificado-administracao.png" alt="Certificado Introdução à Administração" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Criando um Projeto com Interface Gráfica Utilizando Python</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 10h</p>
                 </div>
-                <h4>Introdução à Administração</h4>
-                <p>Fundação Bradesco - 12h</p>
+                <img src="certificado-python-interface.png" alt="Certificado Python Interface Gráfica" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
             </div>
 
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-python-interface">
-                    <img src="certificado-python-interface.png" alt="Certificado Python Interface Gráfica" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Desenvolvimento Orientado a Objetos Utilizando Python</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 10h</p>
                 </div>
-                <h4>Criando um Projeto com Interface Gráfica Utilizando Python</h4>
-                <p>Fundação Bradesco - 10h</p>
+                <img src="certificado-python-oo.png" alt="Certificado Python Orientado a Objetos" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
             </div>
 
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-python-oo">
-                    <img src="certificado-python-oo.png" alt="Certificado Python Orientado a Objetos" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Introdução à Análise de Dados - Microsoft Power BI</h3>
+                    <p class="institution">Fundação Bradesco</p>
+                    <p class="duration">2024</p>
+                    <p class="workload">Carga horária: 5h</p>
                 </div>
-                <h4>Desenvolvimento Orientado a Objetos Utilizando Python</h4>
-                <p>Fundação Bradesco - 10h</p>
+                <img src="certificado-power-bi.png" alt="Certificado Power BI" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
             </div>
 
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-power-bi">
-                    <img src="certificado-power-bi.png" alt="Certificado Power BI" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Foundations of Prompt Engineering</h3>
+                    <p class="institution">AWS Training</p>
+                    <p class="duration">Concluído: 27/06/2025</p>
                 </div>
-                <h4>Introdução à Análise de Dados - Microsoft Power BI</h4>
-                <p>Fundação Bradesco - 5h</p>
+                <img src="certificado-prompt-engineering.png" alt="Certificado Foundations of Prompt Engineering" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
             </div>
 
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-prompt">
-                    <img src="certificado-prompt-engineering.png" alt="Certificado Foundations of Prompt Engineering" style="width: 100%; height: 100%; object-fit: contain;">
+            <div class="education-item-with-cert small">
+                <div class="education-content">
+                    <h3>Data Engineering on AWS - Foundations</h3>
+                    <p class="institution">AWS Training</p>
+                    <p class="duration">Concluído: 02/07/2025</p>
                 </div>
-                <h4>Foundations of Prompt Engineering</h4>
-                <p>AWS Training - Concluído: 27/06/2025</p>
+                <img src="certificado-data-engineering-aws.png" alt="Certificado Data Engineering on AWS" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
             </div>
+        </section>
 
-            <div class="certificate-item small">
-                <div class="certificate-placeholder small" id="cert-aws">
-                    <img src="certificado-data-engineering-aws.png" alt="Certificado Data Engineering on AWS" style="width: 100%; height: 100%; object-fit: contain;">
-                </div>
-                <h4>Data Engineering on AWS - Foundations</h4>
-                <p>AWS Training - Concluído: 02/07/2025</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
         <section class="section">
             <div class="languages">
                 <h3>Idiomas</h3>
@@ -457,8 +431,14 @@
         </footer>
     </div>
 
+    <div id="certificateModal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Certificate">
+        </div>
+    </div>
+
     <script>
-        // Placeholder for profile photo
+
         const profilePhoto = document.getElementById('profile-photo');
         profilePhoto.onerror = function() {
             this.style.display = 'none';
@@ -470,9 +450,27 @@
             placeholder.style.justifyContent = 'center';
             placeholder.style.color = '#666';
             placeholder.style.fontStyle = 'italic';
-            placeholder.textContent = '.';
+            placeholder.textContent = 'Sua foto aqui';
             this.parentNode.insertBefore(placeholder, this);
         };
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certificateModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = 'none';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
