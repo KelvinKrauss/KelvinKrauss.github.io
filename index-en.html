@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Krauss - Portfólio</title>
+    <title>Kelvin Krauss - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -22,6 +22,36 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .language-switcher p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .language-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+            font-family: 'Times New Roman', serif;
+            font-size: 0.9em;
+        }
+
+        .language-btn:hover {
+            background-color: #fff;
+            color: #000;
         }
 
         header {
@@ -61,36 +91,6 @@
         .contact-info p {
             margin: 5px 0;
             font-size: 1.1em;
-        }
-
-        .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            text-align: center;
-        }
-
-        .language-switcher p {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .language-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            border: 2px solid #000;
-            transition: all 0.3s ease;
-            font-family: 'Times New Roman', serif;
-            font-size: 0.9em;
-        }
-
-        .language-btn:hover {
-            background-color: #fff;
-            color: #000;
         }
 
         .professional-objective {
@@ -305,22 +305,22 @@
 <body>
     <div class="container">
         <div class="language-switcher">
-            <p>Trocar idioma</p>
-            <a href="index-en.html" class="language-btn">EN</a>
+            <p>Switch language</p>
+            <a href="index.html" class="language-btn">PT</a>
         </div>
 
         <header>
-            <img src="foto-perfil.jpg" alt="Foto de Kelvin Krauss" class="profile-photo" id="profile-photo">
+            <img src="foto-perfil.jpg" alt="Kelvin Krauss Photo" class="profile-photo" id="profile-photo">
             <h1>Kelvin Krauss</h1>
-            <p class="subtitle">Bacharelando em Ciência da Computação</p>
+            <p class="subtitle">Computer Science Student</p>
             
             <div class="contact-info">
                 <p><strong>Email:</strong> kelvin.krauss.br@gmail.com</p>
-                <p><strong>Telefone:</strong> (47) 9910-4771</p>
+                <p><strong>Phone:</strong> +55 (47) 9910-4771</p>
             </div>
 
             <div class="professional-objective">
-                <p>Sou estudante de Ciências da Computação no Instituto Federal Catarinense, lido bem com Java, JavaScript e Python. Sempre buscando aprender sobre novas tecnologias.</p>
+                <p>I am a Computer Science student at Instituto Federal Catarinense, skilled in Java, JavaScript and Python. Always seeking to learn about new technologies.</p>
             </div>
 
             <div class="social-buttons">
@@ -330,145 +330,145 @@
         </header>
 
         <section class="section">
-            <h2>Educação</h2>
+            <h2>Education</h2>
             
             <div class="education-item">
-                <h3>Bacharelado em Ciência da Computação</h3>
+                <h3>Bachelor's Degree in Computer Science</h3>
                 <p class="institution">Instituto Federal Catarinense (IFC)</p>
-                <p class="duration">Em andamento (entrada 2025)</p>
+                <p class="duration">In progress (started 2025)</p>
             </div>
         </section>
 
         <section class="section">
-            <h2>Formação Complementar</h2>
+            <h2>Additional Training</h2>
             
             <div class="education-item-with-cert large">
                 <div class="education-content">
-                    <h3>Desenvolvedor Web - Back End (Java)</h3>
-                    <p class="institution">Programa Entra21 — Fundação Softville / Blusoft</p>
+                    <h3>Web Developer - Back End (Java)</h3>
+                    <p class="institution">Entra21 Program — Softville Foundation / Blusoft</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 220h</p>
+                    <p class="workload">Workload: 220h</p>
                 </div>
-                <img src="certificado-entra21.png" alt="Certificado Programa Entra21" class="education-cert-image" onclick="openModal('certificado-entra21.png')">
+                <img src="certificado-entra21.png" alt="Entra21 Program Certificate" class="education-cert-image" onclick="openModal('certificado-entra21.png')">
             </div>
             
             <div class="education-item-with-cert medium">
                 <div class="education-content">
-                    <h3>Bootcamp NTT DATA: Java e IA para Iniciantes</h3>
-                    <p class="institution">Programa patrocinado pela Microsoft</p>
+                    <h3>NTT DATA Bootcamp: Java and AI for Beginners</h3>
+                    <p class="institution">Microsoft-sponsored Program</p>
                     <p class="duration">2025</p>
-                    <p class="workload">Carga horária: 48h</p>
+                    <p class="workload">Workload: 48h</p>
                 </div>
-                <img src="certificado-ntt-data.png" alt="Certificado NTT DATA" class="education-cert-image" onclick="openModal('certificado-ntt-data.png')">
+                <img src="certificado-ntt-data.png" alt="NTT DATA Certificate" class="education-cert-image" onclick="openModal('certificado-ntt-data.png')">
             </div>
 
             <div class="education-item-with-cert medium">
                 <div class="education-content">
-                    <h3>Inovando com CSS</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Innovating with CSS</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 26h</p>
+                    <p class="workload">Workload: 26h</p>
                 </div>
-                <img src="certificado-css.png" alt="Certificado Inovando com CSS" class="education-cert-image" onclick="openModal('certificado-css.png')">
+                <img src="certificado-css.png" alt="CSS Innovation Certificate" class="education-cert-image" onclick="openModal('certificado-css.png')">
             </div>
 
             <div class="education-item-with-cert medium">
                 <div class="education-content">
-                    <h3>Desenvolvendo Aplicações Mobile com Android Studio</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Developing Mobile Applications with Android Studio</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 15h</p>
+                    <p class="workload">Workload: 15h</p>
                 </div>
-                <img src="certificado-android.png" alt="Certificado Android Studio" class="education-cert-image" onclick="openModal('certificado-android.png')">
+                <img src="certificado-android.png" alt="Android Studio Certificate" class="education-cert-image" onclick="openModal('certificado-android.png')">
             </div>
 
             <div class="education-item-with-cert medium">
                 <div class="education-content">
-                    <h3>Fundamentos de Lógica de Programação</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Programming Logic Fundamentals</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 15h</p>
+                    <p class="workload">Workload: 15h</p>
                 </div>
-                <img src="certificado-logica.png" alt="Certificado Fundamentos de Lógica" class="education-cert-image" onclick="openModal('certificado-logica.png')">
+                <img src="certificado-logica.png" alt="Programming Logic Certificate" class="education-cert-image" onclick="openModal('certificado-logica.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
-                    <h3>Segurança em Tecnologia da Informação</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Information Technology Security</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 12h</p>
+                    <p class="workload">Workload: 12h</p>
                 </div>
-                <img src="certificado-seguranca.png" alt="Certificado Segurança em TI" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
+                <img src="certificado-seguranca.png" alt="IT Security Certificate" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
-                    <h3>Introdução à Administração</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Introduction to Administration</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 12h</p>
+                    <p class="workload">Workload: 12h</p>
                 </div>
-                <img src="certificado-administracao.png" alt="Certificado Introdução à Administração" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
+                <img src="certificado-administracao.png" alt="Administration Certificate" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
-                    <h3>Criando um Projeto com Interface Gráfica Utilizando Python</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Creating a Project with Graphical Interface Using Python</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 10h</p>
+                    <p class="workload">Workload: 10h</p>
                 </div>
-                <img src="certificado-python-interface.png" alt="Certificado Python Interface Gráfica" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
+                <img src="certificado-python-interface.png" alt="Python GUI Certificate" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
-                    <h3>Desenvolvimento Orientado a Objetos Utilizando Python</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Object-Oriented Development Using Python</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 10h</p>
+                    <p class="workload">Workload: 10h</p>
                 </div>
-                <img src="certificado-python-oo.png" alt="Certificado Python Orientado a Objetos" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
+                <img src="certificado-python-oo.png" alt="Python OOP Certificate" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
-                    <h3>Introdução à Análise de Dados - Microsoft Power BI</h3>
-                    <p class="institution">Fundação Bradesco</p>
+                    <h3>Introduction to Data Analysis - Microsoft Power BI</h3>
+                    <p class="institution">Bradesco Foundation</p>
                     <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 5h</p>
+                    <p class="workload">Workload: 5h</p>
                 </div>
-                <img src="certificado-power-bi.png" alt="Certificado Power BI" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
+                <img src="certificado-power-bi.png" alt="Power BI Certificate" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
                     <h3>Foundations of Prompt Engineering</h3>
                     <p class="institution">AWS Training</p>
-                    <p class="duration">Concluído: 27/06/2025</p>
+                    <p class="duration">Completed: 06/27/2025</p>
                 </div>
-                <img src="certificado-prompt-engineering.png" alt="Certificado Foundations of Prompt Engineering" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
+                <img src="certificado-prompt-engineering.png" alt="Prompt Engineering Certificate" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
             </div>
 
             <div class="education-item-with-cert small">
                 <div class="education-content">
                     <h3>Data Engineering on AWS - Foundations</h3>
                     <p class="institution">AWS Training</p>
-                    <p class="duration">Concluído: 02/07/2025</p>
+                    <p class="duration">Completed: 07/02/2025</p>
                 </div>
-                <img src="certificado-data-engineering-aws.png" alt="Certificado Data Engineering on AWS" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
+                <img src="certificado-data-engineering-aws.png" alt="AWS Data Engineering Certificate" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
             </div>
         </section>
 
         <section class="section">
             <div class="languages">
-                <h3>Idiomas</h3>
+                <h3>Languages</h3>
                 <div class="language-item">
-                    <strong>Português:</strong> Nativo
+                    <strong>Portuguese:</strong> Native
                 </div>
                 <div class="language-item">
-                    <strong>Inglês:</strong> C1 Advanced
+                    <strong>English:</strong> C1 Advanced
                     <br><small>EF SET Certificate — 90 min test, score: 64/100</small>
                     <br><small><a href="https://cert.efset.org/Xogsey" target="_blank">https://cert.efset.org/Xogsey</a></small>
                 </div>
@@ -476,7 +476,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Kelvin Krauss. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Kelvin Krauss. All rights reserved.</p>
         </footer>
     </div>
 
@@ -500,7 +500,7 @@
             placeholder.style.justifyContent = 'center';
             placeholder.style.color = '#666';
             placeholder.style.fontStyle = 'italic';
-            placeholder.textContent = 'Sua foto aqui';
+            placeholder.textContent = 'Your photo here';
             this.parentNode.insertBefore(placeholder, this);
         };
 
