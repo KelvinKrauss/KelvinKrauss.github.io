@@ -169,7 +169,6 @@
             margin-top: 5px;
         }
 
-        /* Certificate zoom modal */
         .modal {
             display: none;
             position: fixed;
@@ -207,18 +206,18 @@
         }
 
         .education-item-with-cert.large {
-            padding: 15px;
-            min-height: 90px;
+            padding: 13px;
+            min-height: 80px;
         }
 
         .education-item-with-cert.medium {
-            padding: 10px;
-            min-height: 60px;
+            padding: 8px;
+            min-height: 40px;
         }
 
         .education-item-with-cert.small {
             padding: 5px;
-            min-height: 40px;
+            min-height: 25px;
         }
 
         .education-content {
@@ -250,8 +249,8 @@
         }
 
         .education-cert-image {
-            width: 80px;
-            height: 55px;
+            width: 120px;
+            height: 85px;
             border: 2px solid #000;
             object-fit: cover;
             cursor: pointer;
@@ -484,7 +483,6 @@
         </footer>
     </div>
 
-    <!-- Modal for certificate zoom -->
     <div id="certificateModal" class="modal" onclick="closeModal()">
         <div class="modal-content">
             <img id="modalImage" src="" alt="Certificate">
@@ -492,7 +490,6 @@
     </div>
 
     <script>
-        // Profile photo placeholder
         const profilePhoto = document.getElementById('profile-photo');
         profilePhoto.onerror = function() {
             this.style.display = 'none';
@@ -508,7 +505,6 @@
             this.parentNode.insertBefore(placeholder, this);
         };
 
-        // Modal functions for certificate zoom
         function openModal(imageSrc) {
             const modal = document.getElementById('certificateModal');
             const modalImg = document.getElementById('modalImage');
@@ -521,7 +517,6 @@
             modal.style.display = 'none';
         }
 
-        // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
