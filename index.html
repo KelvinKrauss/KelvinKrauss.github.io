@@ -126,6 +126,25 @@
             color: #000;
         }
 
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3em;
+            cursor: pointer;
+        }
+
+        .resume-btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
         .section {
             margin: 50px 0;
             padding: 30px 0;
@@ -203,21 +222,60 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .education-item-with-cert.large {
             padding: 13px;
             min-height: 80px;
         }
 
-        .education-item-with-cert.medium {
-            padding: 8px;
-            min-height: 40px;
+        .education-item-collapsible {
+            margin-bottom: 5px;
+            border-left: 4px solid #000;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .education-item-with-cert.small {
-            padding: 5px;
-            min-height: 25px;
+        .education-item-collapsible:hover {
+            background-color: #f0f0f0;
+        }
+
+        .collapsible-header {
+            padding: 6px 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapsible-header h3 {
+            font-size: 1.0em;
+            color: #000;
+            margin: 0;
+        }
+
+        .expand-icon {
+            font-size: 1.2em;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .education-item-collapsible.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .education-item-collapsible.expanded .collapsible-content {
+            max-height: 200px;
+        }
+
+        .collapsible-inner {
+            padding: 0 13px 13px 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .education-content {
@@ -316,6 +374,9 @@
             <div class="contact-info">
                 <p><strong>Email:</strong> kelvin.krauss.br@gmail.com</p>
                 <p><strong>Telefone:</strong> (47) 9910-4771</p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <button class="resume-btn" onclick="openModal('curriculo.pdf')" title="Ver Currículo">📄</button>
+                </div>
             </div>
 
             <div class="professional-objective">
@@ -345,7 +406,7 @@
         <section class="section">
             <h2>Formação Complementar</h2>
             
-            <div class="education-item-with-cert large">
+            <div class="education-item-with-cert">
                 <div class="education-content">
                     <h3>Desenvolvedor Web - Back End (Java)</h3>
                     <p class="institution">Programa Entra21 — Fundação Softville / Blusoft</p>
@@ -355,7 +416,7 @@
                 <img src="certificado-entra21.png" alt="Certificado Programa Entra21" class="education-cert-image" onclick="openModal('certificado-entra21.png')">
             </div>
             
-            <div class="education-item-with-cert medium">
+            <div class="education-item-with-cert">
                 <div class="education-content">
                     <h3>Bootcamp NTT DATA: Java e IA para Iniciantes</h3>
                     <p class="institution">Programa patrocinado pela Microsoft</p>
@@ -365,102 +426,172 @@
                 <img src="certificado-ntt-data.png" alt="Certificado NTT DATA" class="education-cert-image" onclick="openModal('certificado-ntt-data.png')">
             </div>
 
-            <div class="education-item-with-cert medium">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Inovando com CSS</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 26h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-css.png" alt="Certificado Inovando com CSS" class="education-cert-image" onclick="openModal('certificado-css.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 26h</p>
+                        </div>
+                        <img src="certificado-css.png" alt="Certificado Inovando com CSS" class="education-cert-image" onclick="openModal('certificado-css.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert medium">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Desenvolvendo Aplicações Mobile com Android Studio</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 15h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-android.png" alt="Certificado Android Studio" class="education-cert-image" onclick="openModal('certificado-android.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 15h</p>
+                        </div>
+                        <img src="certificado-android.png" alt="Certificado Android Studio" class="education-cert-image" onclick="openModal('certificado-android.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert medium">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Fundamentos de Lógica de Programação</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 15h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-logica.png" alt="Certificado Fundamentos de Lógica" class="education-cert-image" onclick="openModal('certificado-logica.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 15h</p>
+                        </div>
+                        <img src="certificado-logica.png" alt="Certificado Fundamentos de Lógica" class="education-cert-image" onclick="openModal('certificado-logica.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Segurança em Tecnologia da Informação</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 12h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-seguranca.png" alt="Certificado Segurança em TI" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 12h</p>
+                        </div>
+                        <img src="certificado-seguranca.png" alt="Certificado Segurança em TI" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Introdução à Administração</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 12h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-administracao.png" alt="Certificado Introdução à Administração" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 12h</p>
+                        </div>
+                        <img src="certificado-administracao.png" alt="Certificado Introdução à Administração" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Criando um Projeto com Interface Gráfica Utilizando Python</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 10h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-python-interface.png" alt="Certificado Python Interface Gráfica" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 10h</p>
+                        </div>
+                        <img src="certificado-python-interface.png" alt="Certificado Python Interface Gráfica" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Desenvolvimento Orientado a Objetos Utilizando Python</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 10h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-python-oo.png" alt="Certificado Python Orientado a Objetos" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 10h</p>
+                        </div>
+                        <img src="certificado-python-oo.png" alt="Certificado Python Orientado a Objetos" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Introdução à Análise de Dados - Microsoft Power BI</h3>
-                    <p class="institution">Fundação Bradesco</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Carga horária: 5h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-power-bi.png" alt="Certificado Power BI" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Fundação Bradesco</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Carga horária: 5h</p>
+                        </div>
+                        <img src="certificado-power-bi.png" alt="Certificado Power BI" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Foundations of Prompt Engineering</h3>
-                    <p class="institution">AWS Training</p>
-                    <p class="duration">Concluído: 27/06/2025</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-prompt-engineering.png" alt="Certificado Foundations of Prompt Engineering" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">AWS Training</p>
+                            <p class="duration">Concluído: 27/06/2025</p>
+                        </div>
+                        <img src="certificado-prompt-engineering.png" alt="Certificado Foundations of Prompt Engineering" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Data Engineering on AWS - Foundations</h3>
-                    <p class="institution">AWS Training</p>
-                    <p class="duration">Concluído: 02/07/2025</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-data-engineering-aws.png" alt="Certificado Data Engineering on AWS" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">AWS Training</p>
+                            <p class="duration">Concluído: 02/07/2025</p>
+                        </div>
+                        <img src="certificado-data-engineering-aws.png" alt="Certificado Data Engineering on AWS" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -516,6 +647,11 @@
         function closeModal() {
             const modal = document.getElementById('certificateModal');
             modal.style.display = 'none';
+        }
+
+        function toggleCollapsible(element) {
+            event.stopPropagation();
+            element.classList.toggle('expanded');
         }
 
         document.addEventListener('keydown', function(event) {

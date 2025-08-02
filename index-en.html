@@ -24,36 +24,6 @@
             padding: 20px;
         }
 
-        .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            text-align: center;
-        }
-
-        .language-switcher p {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .language-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            border: 2px solid #000;
-            transition: all 0.3s ease;
-            font-family: 'Times New Roman', serif;
-            font-size: 0.9em;
-        }
-
-        .language-btn:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
         header {
             text-align: center;
             padding: 40px 0;
@@ -93,6 +63,36 @@
             font-size: 1.1em;
         }
 
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: center;
+        }
+
+        .language-switcher p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .language-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+            font-family: 'Times New Roman', serif;
+            font-size: 0.9em;
+        }
+
+        .language-btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
         .professional-objective {
             text-align: center;
             margin: 20px 0;
@@ -122,6 +122,25 @@
         }
 
         .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.3em;
+            cursor: pointer;
+        }
+
+        .resume-btn:hover {
             background-color: #fff;
             color: #000;
         }
@@ -203,21 +222,60 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .education-item-with-cert.large {
             padding: 13px;
             min-height: 80px;
         }
 
-        .education-item-with-cert.medium {
-            padding: 8px;
-            min-height: 40px;
+        .education-item-collapsible {
+            margin-bottom: 5px;
+            border-left: 4px solid #000;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .education-item-with-cert.small {
-            padding: 5px;
-            min-height: 25px;
+        .education-item-collapsible:hover {
+            background-color: #f0f0f0;
+        }
+
+        .collapsible-header {
+            padding: 6px 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapsible-header h3 {
+            font-size: 1.0em;
+            color: #000;
+            margin: 0;
+        }
+
+        .expand-icon {
+            font-size: 1.2em;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .education-item-collapsible.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .education-item-collapsible.expanded .collapsible-content {
+            max-height: 200px;
+        }
+
+        .collapsible-inner {
+            padding: 0 13px 13px 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .education-content {
@@ -304,26 +362,29 @@
 <body>
     <div class="container">
         <div class="language-switcher">
-            <p>Switch language</p>
+            <p>Change language</p>
             <a href="index.html" class="language-btn">PT</a>
         </div>
 
         <header>
-            <img src="foto-perfil.png" alt="Kelvin Krauss Photo" class="profile-photo" id="profile-photo">
+            <img src="foto-perfil.png" alt="Photo of Kelvin Krauss" class="profile-photo" id="profile-photo">
             <h1>Kelvin Krauss</h1>
             <p class="subtitle">Computer Science Student</p>
             
             <div class="contact-info">
                 <p><strong>Email:</strong> kelvin.krauss.br@gmail.com</p>
                 <p><strong>Phone:</strong> +55 (47) 9910-4771</p>
+                <div style="text-align: center; margin-top: 15px;">
+                    <button class="resume-btn" onclick="openModal('resume.pdf')" title="View Resume">📄</button>
+                </div>
             </div>
 
             <div class="professional-objective">
-                <p>I am a Computer Science student at Instituto Federal Catarinense, skilled in Java, JavaScript and Python. Always seeking to learn about new technologies.</p>
+                <p>I am a Computer Science student at Instituto Federal Catarinense, with skills in Java, JavaScript, and Python. Always eager to learn about new technologies.</p>
             </div>
 
              <div class="professional-objective">
-                <p>On my GitHub, there are several projects, including a financial transaction management application using object-oriented programming in Java, a product catalog and order simulation system with persistence using H2 Database, microservices with Spring Boot (Eureka Server, API Gateway, independent services), and usage via Postman, and a console-based Hangman game in Java, featuring a modular structure and ASCII graphical representation.</p>
+                <p>On my GitHub you can find several projects including a financial transaction control application with object-oriented programming in Java, a catalog and order simulation system with H2 Database persistence, microservices with Spring Boot (Eureka Server, API Gateway, independent services), Postman usage, and a console hangman game in Java with modular structure and ASCII graphic representation.</p>
             </div>
 
             <div class="social-buttons">
@@ -345,7 +406,7 @@
         <section class="section">
             <h2>Additional Training</h2>
             
-            <div class="education-item-with-cert large">
+            <div class="education-item-with-cert">
                 <div class="education-content">
                     <h3>Web Developer - Back End (Java)</h3>
                     <p class="institution">Entra21 Program — Softville Foundation / Blusoft</p>
@@ -355,7 +416,7 @@
                 <img src="certificado-entra21.png" alt="Entra21 Program Certificate" class="education-cert-image" onclick="openModal('certificado-entra21.png')">
             </div>
             
-            <div class="education-item-with-cert medium">
+            <div class="education-item-with-cert">
                 <div class="education-content">
                     <h3>NTT DATA Bootcamp: Java and AI for Beginners</h3>
                     <p class="institution">Microsoft-sponsored Program</p>
@@ -365,102 +426,172 @@
                 <img src="certificado-ntt-data.png" alt="NTT DATA Certificate" class="education-cert-image" onclick="openModal('certificado-ntt-data.png')">
             </div>
 
-            <div class="education-item-with-cert medium">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Innovating with CSS</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 26h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-css.png" alt="CSS Innovation Certificate" class="education-cert-image" onclick="openModal('certificado-css.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 26h</p>
+                        </div>
+                        <img src="certificado-css.png" alt="Innovating with CSS Certificate" class="education-cert-image" onclick="openModal('certificado-css.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert medium">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Developing Mobile Applications with Android Studio</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 15h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-android.png" alt="Android Studio Certificate" class="education-cert-image" onclick="openModal('certificado-android.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 15h</p>
+                        </div>
+                        <img src="certificado-android.png" alt="Android Studio Certificate" class="education-cert-image" onclick="openModal('certificado-android.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert medium">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Programming Logic Fundamentals</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 15h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-logica.png" alt="Programming Logic Certificate" class="education-cert-image" onclick="openModal('certificado-logica.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 15h</p>
+                        </div>
+                        <img src="certificado-logica.png" alt="Programming Logic Fundamentals Certificate" class="education-cert-image" onclick="openModal('certificado-logica.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Information Technology Security</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 12h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-seguranca.png" alt="IT Security Certificate" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 12h</p>
+                        </div>
+                        <img src="certificado-seguranca.png" alt="IT Security Certificate" class="education-cert-image" onclick="openModal('certificado-seguranca.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Introduction to Administration</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 12h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-administracao.png" alt="Administration Certificate" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 12h</p>
+                        </div>
+                        <img src="certificado-administracao.png" alt="Introduction to Administration Certificate" class="education-cert-image" onclick="openModal('certificado-administracao.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Creating a Project with Graphical Interface Using Python</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 10h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-python-interface.png" alt="Python GUI Certificate" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 10h</p>
+                        </div>
+                        <img src="certificado-python-interface.png" alt="Python Graphical Interface Certificate" class="education-cert-image" onclick="openModal('certificado-python-interface.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Object-Oriented Development Using Python</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 10h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-python-oo.png" alt="Python OOP Certificate" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 10h</p>
+                        </div>
+                        <img src="certificado-python-oo.png" alt="Python Object-Oriented Certificate" class="education-cert-image" onclick="openModal('certificado-python-oo.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Introduction to Data Analysis - Microsoft Power BI</h3>
-                    <p class="institution">Bradesco Foundation</p>
-                    <p class="duration">2024</p>
-                    <p class="workload">Workload: 5h</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-power-bi.png" alt="Power BI Certificate" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">Bradesco Foundation</p>
+                            <p class="duration">2024</p>
+                            <p class="workload">Workload: 5h</p>
+                        </div>
+                        <img src="certificado-power-bi.png" alt="Power BI Certificate" class="education-cert-image" onclick="openModal('certificado-power-bi.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Foundations of Prompt Engineering</h3>
-                    <p class="institution">AWS Training</p>
-                    <p class="duration">Completed: 06/27/2025</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-prompt-engineering.png" alt="Prompt Engineering Certificate" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">AWS Training</p>
+                            <p class="duration">Completed: 06/27/2025</p>
+                        </div>
+                        <img src="certificado-prompt-engineering.png" alt="Foundations of Prompt Engineering Certificate" class="education-cert-image" onclick="openModal('certificado-prompt-engineering.png')">
+                    </div>
+                </div>
             </div>
 
-            <div class="education-item-with-cert small">
-                <div class="education-content">
+            <div class="education-item-collapsible" onclick="toggleCollapsible(this)">
+                <div class="collapsible-header">
                     <h3>Data Engineering on AWS - Foundations</h3>
-                    <p class="institution">AWS Training</p>
-                    <p class="duration">Completed: 07/02/2025</p>
+                    <span class="expand-icon">▼</span>
                 </div>
-                <img src="certificado-data-engineering-aws.png" alt="AWS Data Engineering Certificate" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="education-content">
+                            <p class="institution">AWS Training</p>
+                            <p class="duration">Completed: 07/02/2025</p>
+                        </div>
+                        <img src="certificado-data-engineering-aws.png" alt="Data Engineering on AWS Certificate" class="education-cert-image" onclick="openModal('certificado-data-engineering-aws.png')">
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -505,6 +636,7 @@
             this.parentNode.insertBefore(placeholder, this);
         };
 
+        //zoom
         function openModal(imageSrc) {
             const modal = document.getElementById('certificateModal');
             const modalImg = document.getElementById('modalImage');
@@ -515,6 +647,11 @@
         function closeModal() {
             const modal = document.getElementById('certificateModal');
             modal.style.display = 'none';
+        }
+
+        function toggleCollapsible(element) {
+            event.stopPropagation();
+            element.classList.toggle('expanded');
         }
 
         document.addEventListener('keydown', function(event) {
